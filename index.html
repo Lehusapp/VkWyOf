@@ -120,8 +120,10 @@
       
       function getUserData(){
         vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
+          if(data!=' '){
         console.log(data);
-        gameInstance.SendMessage('VKSDK', 'DataGetting', JSON.stringify(data));
+        gameInstance.SendMessage('VKSDK', 'DataGetting', JSON.stringify(data));}
+          else{console.log("No data");}
       });}
 
       function setUserData(data){
